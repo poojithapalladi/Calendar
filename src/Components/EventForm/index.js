@@ -1,5 +1,5 @@
 import React,{useState} from "react"
-import './EventForm.css'
+import './index.css'
 
 const EventForm=({SelectedDate,onSubmit})=>{
 const [title,setTitle]=useState(',')
@@ -13,16 +13,19 @@ onSubmit({id:Date.now(),date:SelectedDate,title,category});
 return (
     <div className="modal">
         <form onSubmit={handleSubmit}>
-            <label>Event Title:</label>
-            <input value={title} onChange={(event)=>setTitle(event.target.value)}/>
-       <label>Category:</label>
-       <select value={category} onChange={(event)=>setCategory(event.target.value)}>
-       <option value={work}>Work</option>
-       <option value={personal}>Personal</option>
-       </select>
-       <button type='submit'>Save Event</button>
-        </form>
-    </div>
+    <label htmlFor="eventTitle">Event Title:</label>
+    <input id="eventTitle" value={title} onChange={(event) => setTitle(event.target.value)} />
+    
+    <label htmlFor="category">Category:</label>
+    <select id="category" value={category} onChange={(event) => setCategory(event.target.value)}>
+        <option value="work">Work</option>
+        <option value="personal">Personal</option>
+    </select>
+    
+    <button type='submit'>Save Event</button>
+</form>
+
+     </div>
 )
 }
-export default EventForm
+export default EventForm 
